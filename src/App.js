@@ -1,29 +1,21 @@
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
+const App = () => {
+
+  let currTime = new Date().toLocaleTimeString()
+  const [cTime, setCTime] = useState(currTime)
+
+  const GetTime = () => {
+    currTime = new Date().toLocaleTimeString()
+    setCTime(currTime)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-  );
+    <>
+      <h1>{cTime}</h1>
+      <button onClick={GetTime}>Get Time</button>
+    </>
+  )
 }
 
-export default App;
+export default App
